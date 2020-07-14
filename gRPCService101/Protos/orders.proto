@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "gRPCService101.Protos";
+
+service GrpcServices {
+   rpc GetOrders (OrderRequest) returns (OrderResponse);
+}
+
+message OrderRequest{
+   string OrderStatus = 1;
+}
+
+message OrderResponse{
+   repeated CustomerOrder Results = 1;
+}
+
+message CustomerOrder{
+	int32 OrderId = 1;
+	string OrderStatus = 2;
+	int32 CustomerId = 3;
+}

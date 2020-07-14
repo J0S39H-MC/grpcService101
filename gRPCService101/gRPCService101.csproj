@@ -7,12 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <None Remove="Protos\orders.proto" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.29.0" />
+    <PackageReference Include="LanguageExt.Core" Version="3.4.15" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.80" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gRPCService101.ServiceModel\gRPCService101.ServiceModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\orders.proto" GrpcServices="Server" />
   </ItemGroup>
 
 </Project>

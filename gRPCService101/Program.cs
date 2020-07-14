@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Hosting;
 
 namespace gRPCService101
@@ -21,6 +22,12 @@ namespace gRPCService101
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseKestrel(options =>
+                    {
+                        options.ListenLocalhost(9046, o => o.Protocols = HttpProtocols.Http2);
+                    });
+
+
                     webBuilder.UseStartup<Startup>();
                 });
     }
