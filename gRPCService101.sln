@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPCService101.ServiceModel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPCService101.ServiceInterface", "gRPCService101.ServiceInterface\gRPCService101.ServiceInterface.csproj", "{38957534-A944-4DA9-8BFA-0AABFCEEA85C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E3706EA-DA74-4D02-8225-DF92A2CEC87F}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		gRPCService101\Dockerfile = gRPCService101\Dockerfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
