@@ -16,6 +16,7 @@ namespace gRPCService101
             CreateHostBuilder(args).Build().Run();
         }
 
+        //https://github.com/npgsql/efcore.pg/issues/225
         // Additional configuration is required to successfully run gRPC on macOS.
         // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -37,8 +38,16 @@ namespace gRPCService101
                     ////hostBuilder.UseSetting("urls", urls);
 
                     webBuilder.UseStartup<Startup>();
+
+                    //////webBuilder.UseKestrel(options =>
+                    //////{
+                    //////    options..ListenLocalhost(5001, o => o.Protocols = HttpProtocols.Http2);
+                    //////});
+                    
                     webBuilder.ConfigureKestrel(kestrel =>
                     {
+                        // 127.0.0.1:<port>
+                        //kestrel.ListenLocalhost(6000, o => o.Protocols =  HttpProtocols.Http2);
                         kestrel.ConfigureHttpsDefaults(https =>
                         {
                             https.ClientCertificateMode = Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.NoCertificate;
