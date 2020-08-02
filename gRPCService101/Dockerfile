@@ -8,8 +8,9 @@ ENV ASPNETCORE_ENVIRONMENT=Development
 #EXPOSE 80
 #EXPOSE 443
 #EXPOSE 9046
-EXPOSE 5000
-##EXPOSE 5001
+#EXPOSE 5000
+#EXPOSE 5001
+#EXPOSE 6000
 
 # .net core sdk. /src will take sdk 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build

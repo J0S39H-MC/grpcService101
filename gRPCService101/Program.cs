@@ -23,26 +23,7 @@ namespace gRPCService101
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    ////webBuilder.UseKestrel(options =>
-                    ////{
-                    ////    options.ListenLocalhost(9046, o => o.Protocols = HttpProtocols.Http2);
-                    ////});
-
-                    ////webBuilder.UseKestrel(options =>
-                    ////{
-                    ////    options.ListenLocalhost(5001, o => o.Protocols = HttpProtocols.Http2);                        
-                    ////});
-
-                    ////var urls = hostBuilder.GetSetting("urls");
-                    ////urls = urls.Replace("localhost", "127.0.0.1");
-                    ////hostBuilder.UseSetting("urls", urls);
-
                     webBuilder.UseStartup<Startup>();
-
-                    //////webBuilder.UseKestrel(options =>
-                    //////{
-                    //////    options..ListenLocalhost(5001, o => o.Protocols = HttpProtocols.Http2);
-                    //////});
                     
                     webBuilder.ConfigureKestrel(kestrel =>
                     {

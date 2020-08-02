@@ -11,7 +11,16 @@ namespace gRPCService101.DataAccessor
 {
     public class OracleDataAccessor : BaseDataAccessor
     {
-        public OracleDataAccessor(IConfiguration configuration) : base(() => { return new OracleConnection(configuration?.GetConnectionString("OracleConnection")); }, () => { return new OracleCommand(); })
+        public OracleDataAccessor(IConfiguration configuration) : base(() => 
+        {
+            //var connectionString = configuration?.GetConnectionString(connectionStringName);
+            //this.DbConnection = new OracleConnection(connectionString);
+            //this.dbCommand = dbCommand;
+
+            Console.WriteLine(configuration?.GetConnectionString("OracleConnection"));
+            return new OracleConnection(configuration?.GetConnectionString("OracleConnection")); 
+        }, 
+         () => { return new OracleCommand(); })
         //: base(configuration, "OracleConnection", new OracleCommand())
         {
 

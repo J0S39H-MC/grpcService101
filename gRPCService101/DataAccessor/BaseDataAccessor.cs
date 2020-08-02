@@ -47,7 +47,8 @@ namespace gRPCService101.DataAccessor
             IEnumerable<T> qryresults = null;
             try
             {
-                qryresults = await ExecuteQuery<T>(this.DbConnection, qryString, commandType, @params);
+                Console.WriteLine(DbConnection.ConnectionString);
+                 qryresults = await ExecuteQuery<T>(this.DbConnection, qryString, commandType, @params);
             }
             catch (Exception e)
             {
