@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		gRPCService101\Dockerfile = gRPCService101\Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCService101.Test", "gRPCService101.Test\gRPCService101.Test.csproj", "{E54F32A7-C4B4-4BF0-8475-CA543701879B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{38957534-A944-4DA9-8BFA-0AABFCEEA85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38957534-A944-4DA9-8BFA-0AABFCEEA85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38957534-A944-4DA9-8BFA-0AABFCEEA85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54F32A7-C4B4-4BF0-8475-CA543701879B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54F32A7-C4B4-4BF0-8475-CA543701879B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54F32A7-C4B4-4BF0-8475-CA543701879B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54F32A7-C4B4-4BF0-8475-CA543701879B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
