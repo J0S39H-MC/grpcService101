@@ -89,9 +89,25 @@ namespace gRPCService101.DataAccessor
                             {
                                 ColumnAttribute attribute = property.GetCustomAttribute<ColumnAttribute>();
                                 var value = asyncReader[attribute.Name];
-                                var converter = TypeDescriptor.GetConverter(property.PropertyType);
-                                var convertedValue = converter.ConvertTo(value, property.PropertyType);
-                                property.SetValue(genericObject, convertedValue);
+                                if (property.PropertyType.IsGenericType && property.GetType().GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+                                {
+                                    value = ChangeType(value, property.PropertyType);
+                                    property.SetValue(genericObject, value);
+                                }
+                                else
+                                {
+                                    if (property.PropertyType == typeof(Boolean))
+                                    {
+                                        var strVal = value.ToString();
+                                        if (value.ToString() == "1" || value.ToString().ToUpper() == "Y")
+                                            value = true;
+                                        else if (value.ToString() == "0" || value.ToString().ToUpper() == "N")
+                                            value = false;
+                                    }
+                                    var converter = TypeDescriptor.GetConverter(property.PropertyType);
+                                    var convertedValue = converter.ConvertTo(value, property.PropertyType);
+                                    property.SetValue(genericObject, convertedValue);
+                                }
                             });
                             genericObjects.Add(genericObject);
                         }
@@ -99,6 +115,23 @@ namespace gRPCService101.DataAccessor
                 }
             }
             return genericObjects;
+        }
+
+        private static object ChangeType(object value, Type conversion)
+        {
+            var t = conversion;
+
+            if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+                if (value == null || value == DBNull.Value)
+                {
+                    return null;
+                }
+
+                t = Nullable.GetUnderlyingType(t);
+            }
+
+            return Convert.ChangeType(value, t);
         }
     }
 }
